@@ -8,15 +8,10 @@ import br.com.dio.desafio.dominio.Mentoria;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Curso curso1 = new Curso();
-        curso1.setTitulo("Curso Java");
-        curso1.setDescricao("Descrição do curso Java");
-        curso1.setCargaHoraria(8);
+        Curso curso1 = new Curso("Curso Java", "Descrição do curso Java", 4);
         
-        Curso curso2 = new Curso();
-        curso2.setTitulo("Curso JavaScript");
-        curso2.setDescricao("Descrição do curso JavaScript");
-        curso2.setCargaHoraria(4);
+        Curso curso2 = new Curso("Curso JavaScript", "Descrição do curso JavaScript", 4);
+        
 
         Conteudo conteudo = new Curso();
         Conteudo conteudo1 = new Mentoria();
@@ -48,6 +43,8 @@ public class Main {
         System.out.println("----------------------------------------");
         System.out.println("Conteúdos Inscrito Nathalya: " + devNathalya.getConteudosInscritos()+" :)");
         System.out.println("Conteúdos Concluidos Nathalya: " + devNathalya.getConteudosConcluidos()+" :)");
+        devNathalya.imprimirCertificado(bootcamp);
+        System.out.println("Conteúdos Certificados Nathalya: " + devNathalya.getConteudosCertificado()+" :)");
         System.out.println("XP: " + devNathalya.calcularTotalXp());
 
         System.out.println("--------------------------------------------------------------------------------");
@@ -62,6 +59,8 @@ public class Main {
         System.out.println("----------------------------------------");
         System.out.println("Conteúdos Inscrito Gabriel: " + devGabriel.getConteudosInscritos()+" :)");
         System.out.println("Conteúdos Concluidos Gabriel: " + devGabriel.getConteudosConcluidos()+" :)");
+        devGabriel.imprimirCertificado(bootcamp);
+        System.out.println("Conteúdos Certificados Gabriel: " + devGabriel.getConteudosCertificado()+" :)");
         System.out.println("XP: " + devGabriel.calcularTotalXp());
     }
 }

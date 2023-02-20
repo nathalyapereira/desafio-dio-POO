@@ -8,11 +8,13 @@ import java.util.Set;
 public class Bootcamp {
     private String nome;
     private String descricao;
+    private String certificado;
     private final LocalDate dataInicial = LocalDate.now();
     private final LocalDate dataFinal = dataInicial.plusDays(45);
 
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
+    
 
     public String getNome() {
         return nome;
@@ -44,12 +46,19 @@ public class Bootcamp {
     public void setConteudos(Set<Conteudo> conteudos) {
         this.conteudos = conteudos;
     }
+    public String getCertificado() {
+        return certificado;
+    }
+    public void setCertificado(String certificado) {
+        this.certificado = certificado;
+    }
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
         result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
+        result = prime * result + ((certificado == null) ? 0 : certificado.hashCode());
         result = prime * result + ((dataInicial == null) ? 0 : dataInicial.hashCode());
         result = prime * result + ((dataFinal == null) ? 0 : dataFinal.hashCode());
         result = prime * result + ((devsInscritos == null) ? 0 : devsInscritos.hashCode());
@@ -75,6 +84,11 @@ public class Bootcamp {
                 return false;
         } else if (!descricao.equals(other.descricao))
             return false;
+        if (certificado == null) {
+            if (other.certificado != null)
+                return false;
+        } else if (!certificado.equals(other.certificado))
+            return false;
         if (dataInicial == null) {
             if (other.dataInicial != null)
                 return false;
@@ -97,6 +111,7 @@ public class Bootcamp {
             return false;
         return true;
     }
+    
 
     
     

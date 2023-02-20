@@ -9,6 +9,8 @@ public class Dev {
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+    private Set<Conteudo> conteudosCertificado = new LinkedHashSet<>();
+    
 
     public void inscreverBootcamp(Bootcamp bootcamp) {
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
@@ -32,6 +34,14 @@ public class Dev {
         .stream()
         .mapToDouble(Conteudo::calcularXp)
         .sum();
+
+    }
+
+    public void imprimirCertificado(Bootcamp bootcamp) {
+
+         this.conteudosCertificado.addAll(bootcamp.getConteudos());
+        
+        
 
     }
 
@@ -59,6 +69,14 @@ public class Dev {
         this.conteudosConcluidos = conteudosConcluidos;
     }
 
+    public Set<Conteudo> getConteudosCertificado() {
+        return conteudosCertificado;
+    }
+
+    public void setConteudosCertificado(Set<Conteudo> conteudosCertificado) {
+        this.conteudosCertificado = conteudosCertificado;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -66,6 +84,7 @@ public class Dev {
         result = prime * result + ((nome == null) ? 0 : nome.hashCode());
         result = prime * result + ((conteudosInscritos == null) ? 0 : conteudosInscritos.hashCode());
         result = prime * result + ((conteudosConcluidos == null) ? 0 : conteudosConcluidos.hashCode());
+        result = prime * result + ((conteudosCertificado == null) ? 0 : conteudosCertificado.hashCode());
         return result;
     }
 
@@ -93,8 +112,17 @@ public class Dev {
                 return false;
         } else if (!conteudosConcluidos.equals(other.conteudosConcluidos))
             return false;
+        if (conteudosCertificado == null) {
+            if (other.conteudosCertificado != null)
+                return false;
+        } else if (!conteudosCertificado.equals(other.conteudosCertificado))
+            return false;
         return true;
     }
+    
+
+    
+
 
     
     
